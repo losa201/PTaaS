@@ -61,7 +61,28 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// XORB Custom Colors
+				'neon-glow': 'hsl(var(--neon-glow))',
+				'cyber-violet': 'hsl(var(--cyber-violet))',
+				'cyber-green': 'hsl(var(--cyber-green))',
+				'dark-surface': 'hsl(var(--dark-surface))',
+				'darker-surface': 'hsl(var(--darker-surface))'
+			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'Consolas', 'monospace'],
+				cyber: ['Orbitron', 'Inter', 'sans-serif']
+			},
+			backgroundImage: {
+				'gradient-cyber': 'var(--gradient-cyber)',
+				'gradient-dark': 'var(--gradient-dark)',
+				'gradient-glow': 'var(--gradient-glow)'
+			},
+			boxShadow: {
+				'neon': 'var(--shadow-neon)',
+				'cyber': 'var(--shadow-cyber)',
+				'dark': 'var(--shadow-dark)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
