@@ -98,7 +98,7 @@ const Contact = () => {
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Ready to transform your cybersecurity posture? Our team of security experts is here to help you 
-            deploy XORB's autonomous intelligence platform.
+            deploy VerteiDiq's autonomous intelligence platform.
           </p>
         </div>
 

@@ -5,7 +5,7 @@ const Footer = () => {
     {
       title: 'Platform',
       links: [
-        { label: 'XORB Intelligence', href: '#platform' },
+        { label: 'VerteiDiq Intelligence', href: '#platform' },
         { label: 'PTaaS Dashboard', href: '#ptaas' },
         { label: 'API Documentation', href: '#docs' },
         { label: 'Security Center', href: '#security' }
@@ -59,7 +59,7 @@ const Footer = () => {
                 <Shield className="h-8 w-8 text-primary" />
                 <div className="absolute inset-0 rounded-full bg-primary/20 animate-pulse"></div>
               </div>
-              <span className="font-cyber text-xl font-bold text-neon-glow">XORB</span>
+              <span className="font-cyber text-xl font-bold text-neon-glow">VerteiDiq</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Autonomous cybersecurity intelligence platform delivering quantum-secure, 

@@ -27,7 +27,7 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-cyber font-bold mb-6 animate-cyber-fade-in">
-            <span className="text-neon-glow">XORB</span>{' '}
+            <span className="text-neon-glow">VerteiDiq</span>{' '}
             <span className="bg-gradient-cyber bg-clip-text text-transparent">
               Autonomous
             </span>
@@ -41,6 +41,23 @@ const Hero = () => {
             <span className="text-primary font-semibold"> quantum-secure intelligence</span> and 
             <span className="text-accent font-semibold"> real-time threat response</span>.
           </p>
+
+          {/* Free Trial Section */}
+          <div className="max-w-md mx-auto mb-8 animate-cyber-fade-in">
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
+              <input
+                type="text"
+                placeholder="Enter domain"
+                className="flex-1 h-12 px-4 rounded-lg border border-primary/30 bg-background/50 backdrop-blur text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <Button className="btn-cyber px-6 py-3 whitespace-nowrap">
+                Start Free Trial
+              </Button>
+            </div>
+            <p className="text-xs text-muted-foreground mt-2 text-center">
+              Test your domain security in 30 seconds
+            </p>
+          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16 animate-cyber-fade-in">

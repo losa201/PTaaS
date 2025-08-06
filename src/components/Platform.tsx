@@ -54,7 +54,7 @@ const Platform = () => {
             <span className="text-foreground">Architecture</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            XORB's distributed intelligence platform combines autonomous AI agents, quantum-secure protocols, 
+            VerteiDiq's distributed intelligence platform combines autonomous AI agents, quantum-secure protocols, 
             and real-time threat response to create an impenetrable cybersecurity ecosystem.
           </p>
         </div>
@@ -103,7 +103,7 @@ const Platform = () => {
         <div className="card-cyber mb-12">
           <div className="text-center py-16">
             <Network className="h-16 w-16 text-primary mx-auto mb-4 animate-pulse" />
-            <h3 className="text-2xl font-semibold mb-4 text-foreground">XORB Network Architecture</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-foreground">VerteiDiq Network Architecture</h3>
             <p className="text-muted-foreground mb-6">
               Interactive architecture diagram showing AI agent distribution, quantum-secure channels, and threat response flows
             </p>
@@ -116,7 +116,7 @@ const Platform = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold mb-4 text-foreground">Ready to Deploy XORB?</h3>
+          <h3 className="text-2xl font-bold mb-4 text-foreground">Ready to Deploy VerteiDiq?</h3>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Experience the future of cybersecurity with our autonomous intelligence platform. 
             Get started with a personalized demo and security assessment.

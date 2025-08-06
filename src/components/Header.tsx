@@ -23,7 +23,7 @@ const Header = () => {
               <Shield className="h-8 w-8 text-primary" />
               <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
             </div>
-            <span className="font-cyber text-xl font-bold text-neon-glow">XORB</span>
+            <span className="font-cyber text-xl font-bold text-neon-glow">VerteiDiq</span>
           </div>
 
           {/* Desktop Navigation */}
