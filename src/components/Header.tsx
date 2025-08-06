@@ -45,7 +45,10 @@ const Header = () => {
             <Button variant="ghost" className="text-primary hover:text-primary-foreground hover:bg-primary">
               Request Demo
             </Button>
-            <Button className="btn-cyber">
+            <Button 
+              className="btn-cyber"
+              onClick={() => window.location.href = '/dashboard'}
+            >
               <Zap className="h-4 w-4 mr-2" />
               Launch PTaaS
             </Button>
@@ -82,7 +85,10 @@ const Header = () => {
                 <Button variant="ghost" className="w-full text-primary hover:text-primary-foreground hover:bg-primary">
                   Request Demo
                 </Button>
-                <Button className="w-full btn-cyber">
+                <Button 
+                  className="w-full btn-cyber"
+                  onClick={() => window.location.href = '/dashboard'}
+                >
                   <Zap className="h-4 w-4 mr-2" />
                   Launch PTaaS
                 </Button>
