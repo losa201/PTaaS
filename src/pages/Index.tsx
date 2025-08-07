@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import PTaaSWorkflow from '@/components/PTaaSWorkflow';
 import Platform from '@/components/Platform';
 import PTaaS from '@/components/PTaaS';
 import Testimonials from '@/components/Testimonials';
@@ -16,6 +17,7 @@ const Index = () => {
       <main>
         <Hero />
         <TrustBadges />
+        <PTaaSWorkflow />
         <Platform />
         <PTaaS />
         <Testimonials />

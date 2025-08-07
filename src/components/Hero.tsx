@@ -26,24 +26,32 @@ const Hero = () => {
         <div className="text-center max-w-5xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-8 animate-cyber-fade-in">
-            <Globe className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Quantum-Secure • AI-Powered • Autonomous</span>
+            <Shield className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Continuous • Human-Validated • DevOps-Ready</span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-cyber font-bold mb-6 animate-cyber-fade-in">
             <span className="bg-gradient-cyber bg-clip-text text-transparent">
-              Automated Penetration Testing.
+              Penetration Testing as a Service
             </span>
             <br />
-            <span className="text-neon-glow">Real Threats, Real Results, Real Fast.</span>
+            <span className="text-neon-glow">On-Demand, Automated, Human‑Validated</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed animate-cyber-fade-in">
-            Deploy AI-driven security testing in minutes. Get 
-            <span className="text-primary font-semibold"> actionable insights</span>, not noise.
+          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed animate-cyber-fade-in">
+            Launch real attacks, get real insights, remediate faster. 
+            <span className="text-primary font-semibold"> Continuous security</span> built for DevOps.
           </p>
+
+          {/* PTaaS Explainer */}
+          <div className="max-w-4xl mx-auto mb-12 animate-cyber-fade-in">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              PTaaS blends automation with expert human testing across web, API & infrastructure. 
+              You get real-time findings, seamless DevOps integration, and continuous validation—no more waiting for outdated one-off reports.
+            </p>
+          </div>
 
           {/* Free Trial Section */}
           <div className="max-w-lg mx-auto mb-8 animate-cyber-fade-in">
@@ -75,23 +83,23 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Features Grid */}
+          {/* PTaaS Benefits */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-cyber-fade-in">
             {[
               {
-                icon: Shield,
-                title: 'Autonomous Protection',
-                description: 'AI agents that learn, adapt, and respond to threats without human intervention'
+                icon: Zap,
+                title: 'On-Demand Continuous Testing',
+                description: 'Say goodbye to the twice‑a‑year wait. Launch tests whenever you need them, get results in real-time.'
               },
               {
-                icon: Zap,
-                title: 'Real-Time Intelligence',
-                description: 'Instant threat detection with quantum-secure data processing and analysis'
+                icon: Shield,
+                title: 'Real-Time Reporting & Re-Testing',
+                description: 'Findings appear live in your dashboard. Instant re-run support to validate fixes immediately.'
               },
               {
                 icon: Globe,
-                title: 'Global Compliance',
-                description: 'Built-in GDPR, DSGVO, BSI, IT-SiG, and NIS2 compliance automation'
+                title: 'DevOps-Friendly Integrations',
+                description: 'Plug into CI/CD pipelines, ticketing systems, and get straight to remediation without friction.'
               }
             ].map((feature, index) => (
               <div key={index} className="card-cyber text-center group hover:scale-105 transition-transform duration-300">
