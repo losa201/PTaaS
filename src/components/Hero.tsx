@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Shield, Zap, Globe } from 'lucide-react';
+import { ArrowRight, Shield, Zap, Globe, Play } from 'lucide-react';
+import { motion } from 'framer-motion';
 import heroBg from '@/assets/hero-cyber-bg.jpg';
+import DemoModal from '@/components/DemoModal';
 
 const Hero = () => {
+  const [showDemo, setShowDemo] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
@@ -27,51 +32,46 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-cyber font-bold mb-6 animate-cyber-fade-in">
-            <span className="text-neon-glow">VerteiDiq</span>{' '}
             <span className="bg-gradient-cyber bg-clip-text text-transparent">
-              Autonomous
+              Automated Penetration Testing.
             </span>
             <br />
-            <span className="text-foreground">Cybersecurity Intelligence</span>
+            <span className="text-neon-glow">Real Threats, Real Results, Real Fast.</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed animate-cyber-fade-in">
-            Deploy AI-powered security agents that autonomously protect your digital infrastructure with 
-            <span className="text-primary font-semibold"> quantum-secure intelligence</span> and 
-            <span className="text-accent font-semibold"> real-time threat response</span>.
+            Deploy AI-driven security testing in minutes. Get 
+            <span className="text-primary font-semibold"> actionable insights</span>, not noise.
           </p>
 
           {/* Free Trial Section */}
-          <div className="max-w-md mx-auto mb-8 animate-cyber-fade-in">
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
+          <div className="max-w-lg mx-auto mb-8 animate-cyber-fade-in">
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3 bg-card/30 backdrop-blur border border-primary/20 rounded-xl p-4">
               <input
-                type="text"
-                placeholder="Enter domain"
-                className="flex-1 h-12 px-4 rounded-lg border border-primary/30 bg-background/50 backdrop-blur text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-1 h-12 px-4 rounded-lg border border-primary/30 bg-background/80 backdrop-blur text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
-              <Button className="btn-cyber px-6 py-3 whitespace-nowrap">
-                Start Free Trial
+              <Button className="btn-cyber px-8 py-3 whitespace-nowrap h-12 text-base font-semibold">
+                Start Free Assessment
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground mt-2 text-center">
-              Test your domain security in 30 seconds
+            <p className="text-sm text-muted-foreground mt-3 text-center">
+              No credit card required • Get results in under 60 seconds
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16 animate-cyber-fade-in">
-            <Button className="btn-cyber text-lg px-8 py-4 group">
-              <Shield className="h-5 w-5 mr-2 group-hover:animate-pulse" />
-              Request Demo
-              <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
             <Button 
               variant="outline" 
-              className="text-lg px-8 py-4 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground"
+              className="text-lg px-8 py-4 border-primary/50 text-primary hover:bg-primary/10 group"
+              onClick={() => setShowDemo(true)}
             >
-              <Zap className="h-5 w-5 mr-2" />
-              Launch PTaaS
+              <Play className="h-5 w-5 mr-2 group-hover:animate-pulse" />
+              See Live Demo
+              <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
 
@@ -110,6 +110,9 @@ const Hero = () => {
       <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-ping opacity-60"></div>
       <div className="absolute top-32 right-20 w-1 h-1 bg-accent rounded-full animate-pulse opacity-40"></div>
       <div className="absolute bottom-40 left-20 w-3 h-3 bg-cyber-violet rounded-full animate-bounce opacity-30"></div>
+
+      {/* Demo Modal */}
+      <DemoModal open={showDemo} onOpenChange={setShowDemo} />
     </section>
   );
 };
