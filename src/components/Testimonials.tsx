@@ -9,28 +9,45 @@ const testimonials = [
     id: 1,
     name: "Sarah Chen",
     role: "CISO",
-    company: "TechCorp Solutions",
-    content: "VerteiDiq found critical vulnerabilities our previous tools missed. The AI-driven insights helped us prevent a potential breach that could have cost millions.",
+    company: "FinanceFirst Bank",
+    sector: "Financial Services",
+    content: "PTaaS reduced our security assessment time from 6 months to 2 weeks. We caught 3 critical vulnerabilities that would have cost us $4.2M in compliance violations.",
+    metrics: "4.2M saved • 95% faster detection",
     rating: 5,
     avatar: "SC"
   },
   {
     id: 2,
-    name: "Marcus Rodriguez",
-    role: "Security Engineer",
-    company: "Global Finance Inc",
-    content: "The automated remediation suggestions are game-changing. What used to take weeks of manual analysis now happens in minutes with actionable results.",
+    name: "Marcus Weber",
+    role: "Head of Security",
+    company: "CloudTech Industries",
+    sector: "Technology",
+    content: "The continuous monitoring caught a zero-day exploit in our API layer before it went public. The human validation gave us confidence to act immediately.",
+    metrics: "0-day detection • 24hr response time",
     rating: 5,
-    avatar: "MR"
+    avatar: "MW"
   },
   {
     id: 3,
-    name: "Dr. Elena Vasquez",
-    role: "Head of Compliance",
-    company: "MedTech Innovations",
-    content: "GDPR and HIPAA compliance tracking is seamless. VerteiDiq's real-time monitoring gives us confidence in our security posture during audits.",
+    name: "Dr. Elena Schmidt",
+    role: "Chief Risk Officer",
+    company: "MedTech AG",
+    sector: "Healthcare",
+    content: "GDPR and HIPAA compliance tracking is seamless. PTaaS helped us pass our ISO 27001 audit with zero security findings - a first in our company history.",
+    metrics: "100% audit compliance • 0 findings",
     rating: 5,
-    avatar: "EV"
+    avatar: "ES"
+  },
+  {
+    id: 4,
+    name: "David Thompson",
+    role: "DevSecOps Lead",
+    company: "ScaleUp Technologies",
+    sector: "SaaS",
+    content: "CI/CD integration was flawless. We now catch vulnerabilities before deployment, reducing our production incidents by 78% in just 3 months.",
+    metrics: "78% fewer incidents • DevOps ready",
+    rating: 5,
+    avatar: "DT"
   }
 ];
 
@@ -75,11 +92,20 @@ export const Testimonials = () => {
                   "{testimonials[currentIndex].content}"
                 </blockquote>
 
-                <div className="flex items-center justify-center gap-1 mb-6">
+                <div className="flex items-center justify-center gap-1 mb-4">
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
+
+                {/* Business Metrics */}
+                {testimonials[currentIndex].metrics && (
+                  <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 mb-6 inline-block">
+                    <p className="text-primary font-semibold text-sm">
+                      {testimonials[currentIndex].metrics}
+                    </p>
+                  </div>
+                )}
 
                 <div className="flex items-center justify-center gap-4">
                   <Avatar className="h-16 w-16 border-2 border-primary/30">
@@ -96,6 +122,9 @@ export const Testimonials = () => {
                     </div>
                     <div className="text-muted-foreground text-sm">
                       {testimonials[currentIndex].company}
+                    </div>
+                    <div className="text-xs text-muted-foreground/70 mt-1">
+                      {testimonials[currentIndex].sector}
                     </div>
                   </div>
                 </div>

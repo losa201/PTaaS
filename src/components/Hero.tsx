@@ -4,6 +4,7 @@ import { ArrowRight, Shield, Zap, Globe, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import heroBg from '@/assets/hero-cyber-bg.jpg';
 import DemoModal from '@/components/DemoModal';
+import ProgressiveLeadCapture from '@/components/ProgressiveLeadCapture';
 
 const Hero = () => {
   const [showDemo, setShowDemo] = useState(false);
@@ -24,25 +25,26 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <div className="text-center max-w-5xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-8 animate-cyber-fade-in">
-            <Shield className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Continuous • Human-Validated • DevOps-Ready</span>
+          {/* Trust Badge */}
+          <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/30 rounded-full px-6 py-3 mb-8 animate-cyber-fade-in">
+            <Shield className="h-5 w-5 text-primary" />
+            <span className="text-sm font-medium text-primary">Trusted by 500+ Enterprise CISOs • SOC2 • ISO 27001</span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-cyber font-bold mb-6 animate-cyber-fade-in">
             <span className="bg-gradient-cyber bg-clip-text text-transparent">
-              Penetration Testing as a Service
+              Stop Breaches Before They Happen
             </span>
             <br />
-            <span className="text-neon-glow">On-Demand, Automated, Human‑Validated</span>
+            <span className="text-neon-glow">AI-Powered Security That Thinks Like Attackers</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed animate-cyber-fade-in">
-            Launch real attacks, get real insights, remediate faster. 
-            <span className="text-primary font-semibold"> Continuous security</span> built for DevOps.
+          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed animate-cyber-fade-in">
+            VerteidIQ's <span className="text-primary font-semibold">autonomous agents detect, validate, and neutralize threats 24/7</span> - 
+            reducing security incidents by <span className="text-green-400 font-bold">89%</span> and preventing 
+            <span className="text-green-400 font-bold"> $4.2M average breach costs</span> for enterprise teams.
           </p>
 
           {/* PTaaS Explainer */}
@@ -53,53 +55,48 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Free Trial Section */}
-          <div className="max-w-lg mx-auto mb-8 animate-cyber-fade-in">
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3 bg-card/30 backdrop-blur border border-primary/20 rounded-xl p-4">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1 h-12 px-4 rounded-lg border border-primary/30 bg-background/80 backdrop-blur text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              />
-              <Button className="btn-cyber px-8 py-3 whitespace-nowrap h-12 text-base font-semibold">
-                Start Free Assessment
-              </Button>
-            </div>
-            <p className="text-sm text-muted-foreground mt-3 text-center">
-              No credit card required • Get results in under 60 seconds
-            </p>
+          {/* Progressive Lead Capture */}
+          <div className="max-w-3xl mx-auto mb-8 animate-cyber-fade-in">
+            <ProgressiveLeadCapture variant="hero" />
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16 animate-cyber-fade-in">
+          {/* Secondary CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-16 animate-cyber-fade-in">
             <Button 
               variant="outline" 
-              className="text-lg px-8 py-4 border-primary/50 text-primary hover:bg-primary/10 group"
+              className="text-lg px-10 py-4 border-primary/50 text-primary hover:bg-primary/10 group bg-background/50 backdrop-blur"
               onClick={() => setShowDemo(true)}
             >
-              <Play className="h-5 w-5 mr-2 group-hover:animate-pulse" />
+              <Play className="h-5 w-5 mr-3 group-hover:animate-pulse" />
               See Live Demo
-              <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-4 w-4 ml-3 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button 
+              variant="ghost"
+              className="text-lg px-8 py-4 text-muted-foreground hover:text-primary group"
+            >
+              Talk to CISO
+              <span className="text-xs ml-2 bg-primary/20 px-2 py-1 rounded">15 min</span>
             </Button>
           </div>
 
-          {/* PTaaS Benefits */}
+          {/* Business Benefits */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-cyber-fade-in">
             {[
               {
-                icon: Zap,
-                title: 'On-Demand Continuous Testing',
-                description: 'Say goodbye to the twice‑a‑year wait. Launch tests whenever you need them, get results in real-time.'
+                icon: Shield,
+                title: '85% Faster Incident Response',
+                description: 'Eliminate month-long pentest cycles. Get continuous validation with human expertise backing every finding.'
               },
               {
-                icon: Shield,
-                title: 'Real-Time Reporting & Re-Testing',
-                description: 'Findings appear live in your dashboard. Instant re-run support to validate fixes immediately.'
+                icon: Zap,
+                title: '$2.4M Average Breach Prevention',
+                description: 'Identify critical vulnerabilities before attackers do. Real-time detection prevents costly incidents.'
               },
               {
                 icon: Globe,
-                title: 'DevOps-Friendly Integrations',
-                description: 'Plug into CI/CD pipelines, ticketing systems, and get straight to remediation without friction.'
+                title: '99.7% Vulnerability Detection',
+                description: 'AI-powered scanning + human validation ensures comprehensive coverage across web, API & cloud infrastructure.'
               }
             ].map((feature, index) => (
               <div key={index} className="card-cyber text-center group hover:scale-105 transition-transform duration-300">

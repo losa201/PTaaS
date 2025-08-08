@@ -18,54 +18,60 @@ import {
 
 const plans = [
   {
-    name: 'Starter',
+    name: 'Professional',
     icon: Shield,
     price: 0,
-    description: 'Perfect for small teams getting started',
+    description: 'Essential security for growing companies',
     features: [
-      'Up to 10 assets monitored',
-      'Monthly security scans',
+      'Up to 25 assets monitored',
+      'Monthly penetration tests',
       'Basic vulnerability detection',
-      'Email notifications',
-      'Community support'
+      'Email & Slack notifications',
+      'Community support',
+      'Basic compliance reports'
     ],
-    cta: 'Start Free',
-    popular: false
+    cta: 'Start Free Assessment',
+    popular: false,
+    savings: null
   },
   {
-    name: 'Team',
+    name: 'Business',
     icon: Zap,
-    price: 199,
-    description: 'Advanced protection for growing organizations',
+    price: 2499,
+    description: 'Continuous security for mid-market enterprises',
     features: [
-      'Up to 100 assets monitored',
-      'Weekly automated scans',
+      'Up to 250 assets monitored',
+      'Continuous automated scanning',
       'AI-powered threat intelligence',
-      'Real-time notifications',
-      'Compliance reporting (GDPR, SOC2)',
-      'Priority support',
-      'Custom integrations'
+      'Real-time dashboard & alerts',
+      'Advanced compliance (GDPR, ISO27001, SOC2)',
+      'DevOps integrations (CI/CD, Jira)',
+      'Priority support & training',
+      'Human-validated findings'
     ],
-    cta: 'Start Free Trial',
-    popular: true
+    cta: 'Start 14-Day Free Trial',
+    popular: true,
+    savings: '$1.2M avg breach prevention'
   },
   {
     name: 'Enterprise',
     icon: Crown,
     price: 'Custom',
-    description: 'Complete security orchestration for enterprises',
+    description: 'Complete security orchestration platform',
     features: [
-      'Unlimited assets monitored',
-      'Continuous real-time scanning',
+      'Unlimited assets & environments',
       'Advanced AI threat modeling',
-      'Dedicated security consultant',
-      'Full compliance automation',
-      'Custom deployment options',
-      'SLA guarantees',
-      '24/7 dedicated support'
+      'Dedicated security engineer',
+      'Custom compliance frameworks',
+      'On-premises deployment options',
+      'White-label portal',
+      'SLA guarantees (99.9% uptime)',
+      '24/7 SOC support',
+      'Executive reporting'
     ],
-    cta: 'Contact Sales',
-    popular: false
+    cta: 'Schedule Enterprise Demo',
+    popular: false,
+    savings: '$4.8M avg total cost savings'
   }
 ];
 
@@ -189,7 +195,7 @@ export const Pricing = () => {
                   </div>
                 </div>
 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -197,6 +203,15 @@ export const Pricing = () => {
                     </li>
                   ))}
                 </ul>
+
+                {/* Value Proposition */}
+                {plan.savings && (
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3 mb-6 text-center">
+                    <p className="text-green-400 font-semibold text-sm">
+                      {plan.savings}
+                    </p>
+                  </div>
+                )}
 
                 <Button 
                   className={`w-full ${plan.popular ? 'btn-cyber' : ''}`}
