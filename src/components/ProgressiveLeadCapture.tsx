@@ -23,6 +23,7 @@ import {
 interface ProgressiveLeadCaptureProps {
   variant?: 'hero' | 'modal' | 'inline';
   onComplete?: (data: LeadData) => void;
+  onClose?: () => void;
 }
 
 interface LeadData {
