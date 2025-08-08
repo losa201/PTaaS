@@ -16,6 +16,16 @@ const Header = () => {
 
   const navItems = [
     { label: 'Solutions', href: '/solutions' },
+    { label: 'Platform', href: '#', dropdown: [
+      { label: 'Security Operations', href: '/advanced-security' },
+      { label: 'Threat Hunting', href: '/threat-hunting' },
+      { label: 'AI Security Orchestrator', href: '/ai-orchestrator' },
+      { label: 'Zero Trust Manager', href: '/zero-trust' },
+      { label: 'Cloud Security Posture', href: '/cloud-security' },
+      { label: 'Compliance Center', href: '/compliance' },
+      { label: 'Enterprise Reporting', href: '/reporting' },
+      { label: 'Dashboard', href: '/dashboard' }
+    ]},
     { label: 'Industries', href: '#', dropdown: [
       { label: 'Financial Services', href: '/finance' },
       { label: 'Healthcare', href: '/healthcare' },

@@ -20,6 +20,13 @@ const ABTestingPage = lazy(() => import("./pages/ABTesting"));
 const About = lazy(() => import("./pages/About"));
 const Solutions = lazy(() => import("./pages/Solutions"));
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
+const AdvancedSecurity = lazy(() => import("./components/AdvancedSecurity"));
+const ThreatHunting = lazy(() => import("./components/ThreatHunting"));
+const AISecurityOrchestrator = lazy(() => import("./components/AISecurityOrchestrator"));
+const ZeroTrustManager = lazy(() => import("./components/ZeroTrustManager"));
+const CloudSecurityPosture = lazy(() => import("./components/CloudSecurityPosture"));
+const ComplianceCenter = lazy(() => import("./components/ComplianceCenter"));
+const EnterpriseReporting = lazy(() => import("./components/EnterpriseReporting"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading component for Suspense fallback
@@ -60,6 +67,13 @@ const App = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/solutions" element={<Solutions />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/advanced-security" element={<AdvancedSecurity />} />
+                <Route path="/threat-hunting" element={<ThreatHunting />} />
+                <Route path="/ai-orchestrator" element={<AISecurityOrchestrator />} />
+                <Route path="/zero-trust" element={<ZeroTrustManager />} />
+                <Route path="/cloud-security" element={<CloudSecurityPosture />} />
+                <Route path="/compliance" element={<ComplianceCenter />} />
+                <Route path="/reporting" element={<EnterpriseReporting />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
