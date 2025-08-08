@@ -22,4 +22,62 @@ export default defineConfig(({ mode }) => ({
   define: {
     __WS_TOKEN__: 'undefined',
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Core React and dependencies
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          
+          // UI Libraries - Radix UI components
+          radix: [
+            '@radix-ui/react-dialog', 
+            '@radix-ui/react-select', 
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-tabs',
+            '@radix-ui/react-popover',
+            '@radix-ui/react-dropdown-menu'
+          ],
+          
+          // Animation and visual libraries
+          ui: ['framer-motion', 'lucide-react'],
+          
+          // Charts and visualization
+          charts: ['recharts'],
+          
+          // Form and validation
+          forms: ['react-hook-form', '@hookform/resolvers', 'zod'],
+          
+          // Utilities and smaller libraries
+          utils: ['clsx', 'tailwind-merge', 'date-fns', 'class-variance-authority'],
+          
+          // React Query
+          query: ['@tanstack/react-query']
+        },
+      },
+    },
+    
+    // Performance optimizations
+    chunkSizeWarningLimit: 1600,
+    sourcemap: mode === 'development',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: mode === 'production',
+        drop_debugger: mode === 'production',
+      },
+    },
+    
+    // Asset optimization
+    assetsDir: 'assets',
+    assetsInlineLimit: 4096,
+  },
+  
+  // CSS optimization
+  css: {
+    devSourcemap: mode === 'development',
+    modules: {
+      localsConvention: 'camelCase',
+    },
+  },
 }));
