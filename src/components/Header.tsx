@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import { Menu, X, Shield, Zap, Moon, Sun, Search } from 'lucide-react';
+import { Menu, X, Shield, Zap, Moon, Sun, Search, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Input } from '@/components/ui/input';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,9 +16,13 @@ const Header = () => {
 
   const navItems = [
     { label: 'Platform', href: '#platform' },
+    { label: 'Industries', href: '#', dropdown: [
+      { label: 'Financial Services', href: '/finance' },
+      { label: 'Healthcare', href: '/healthcare' },
+      { label: 'Manufacturing', href: '/manufacturing' }
+    ]},
     { label: 'PTaaS', href: '#ptaas' },
     { label: 'Compliance', href: '#compliance' },
-    { label: 'Docs', href: '#docs' },
     { label: 'Contact', href: '#contact' }
   ];
 
@@ -41,14 +51,36 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-200 relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              item.dropdown ? (
+                <DropdownMenu key={item.label}>
+                  <DropdownMenuTrigger className="text-foreground hover:text-primary transition-colors duration-200 relative group flex items-center gap-1">
+                    {item.label}
+                    <ChevronDown className="h-4 w-4" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-background/95 backdrop-blur-lg border-primary/30">
+                    {item.dropdown.map((dropdownItem) => (
+                      <DropdownMenuItem key={dropdownItem.label} asChild>
+                        <a
+                          href={dropdownItem.href}
+                          className="text-foreground hover:text-primary transition-colors duration-200"
+                        >
+                          {dropdownItem.label}
+                        </a>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-foreground hover:text-primary transition-colors duration-200 relative group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              )
             ))}
           </nav>
 
@@ -63,8 +95,12 @@ const Header = () => {
               />
               <Moon className="h-4 w-4 text-primary" />
             </div>
-            <Button variant="ghost" className="text-primary hover:text-primary-foreground hover:bg-primary">
-              Request Demo
+            <Button 
+              variant="ghost" 
+              className="text-primary hover:text-primary-foreground hover:bg-primary"
+              onClick={() => window.location.href = '/demo'}
+            >
+              Live Demo
             </Button>
             <Button 
               className="btn-cyber"
@@ -103,8 +139,12 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 space-y-3">
-                <Button variant="ghost" className="w-full text-primary hover:text-primary-foreground hover:bg-primary">
-                  Request Demo
+                <Button 
+                  variant="ghost" 
+                  className="w-full text-primary hover:text-primary-foreground hover:bg-primary"
+                  onClick={() => window.location.href = '/demo'}
+                >
+                  Live Demo
                 </Button>
                 <Button 
                   className="w-full btn-cyber"
