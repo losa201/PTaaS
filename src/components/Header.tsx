@@ -15,15 +15,14 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const navItems = [
-    { label: 'Platform', href: '#platform' },
+    { label: 'Solutions', href: '/solutions' },
     { label: 'Industries', href: '#', dropdown: [
       { label: 'Financial Services', href: '/finance' },
       { label: 'Healthcare', href: '/healthcare' },
       { label: 'Manufacturing', href: '/manufacturing' }
     ]},
-    { label: 'PTaaS', href: '#ptaas' },
-    { label: 'Compliance', href: '#compliance' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'About', href: '/about' }
   ];
 
   return (

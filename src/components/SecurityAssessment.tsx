@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { trackFormStart, trackFormComplete, useAnalytics } from '@/components/AnalyticsTracker';
 import { Shield, AlertTriangle, CheckCircle, TrendingUp, Users, Building, DollarSign, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -48,6 +49,13 @@ const SecurityAssessment = ({ industry = 'general' }: { industry?: string }) => 
     employees: '',
     title: ''
   });
+  const analytics = useAnalytics();
+
+  useEffect(() => {
+    // Track assessment start
+    trackFormStart('assessment', industry);
+    analytics.trackUserInteraction('assessment_start', 'engagement', industry);
+  }, [analytics, industry]);
 
   const questions: Question[] = [
     {
@@ -298,6 +306,14 @@ const SecurityAssessment = ({ industry = 'general' }: { industry?: string }) => 
       const assessmentResults = calculateResults();
       setResults(assessmentResults);
       setShowResults(true);
+      
+      // Track assessment completion
+      trackFormComplete('assessment', {
+        industry,
+        risk_level: assessmentResults.overallRisk,
+        risk_score: assessmentResults.riskScore,
+        estimated_breach_cost: assessmentResults.estimatedBreachCost
+      });
     }
   };
 

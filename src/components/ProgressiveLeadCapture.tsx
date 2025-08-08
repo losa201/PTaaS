@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackFormStart, trackFormComplete, useAnalytics } from '@/components/AnalyticsTracker';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -40,6 +41,13 @@ const ProgressiveLeadCapture = ({ variant = 'hero', onComplete }: ProgressiveLea
   const [leadData, setLeadData] = useState<LeadData>({});
   const [loading, setLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const analytics = useAnalytics();
+
+  useEffect(() => {
+    // Track form start
+    trackFormStart('lead_capture');
+    analytics.trackUserInteraction('lead_form_view', 'engagement', variant);
+  }, [analytics, variant]);
 
   const companySizes = [
     { value: '1-50', label: '1-50 employees', risk: 'High' },
@@ -96,6 +104,15 @@ const ProgressiveLeadCapture = ({ variant = 'hero', onComplete }: ProgressiveLea
     setTimeout(() => {
       setCompleted(true);
       setLoading(false);
+      
+      // Track form completion
+      trackFormComplete('lead_capture', {
+        email: leadData.email,
+        company_size: leadData.companySize,
+        role: leadData.role,
+        industry: 'general'
+      });
+      
       onComplete?.(leadData);
     }, 1000);
   };
