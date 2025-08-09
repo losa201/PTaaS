@@ -61,13 +61,13 @@ export default defineConfig(({ mode }) => ({
     // Performance optimizations
     chunkSizeWarningLimit: 1600,
     sourcemap: mode === 'development',
-    minify: 'terser',
-    terserOptions: {
+    minify: mode === 'production' ? 'terser' : false,
+    terserOptions: mode === 'production' ? {
       compress: {
-        drop_console: mode === 'production',
-        drop_debugger: mode === 'production',
+        drop_console: true,
+        drop_debugger: true,
       },
-    },
+    } : undefined,
     
     // Asset optimization
     assetsDir: 'assets',
@@ -81,4 +81,7 @@ export default defineConfig(({ mode }) => ({
       localsConvention: 'camelCase',
     },
   },
+  
+  // Ensure proper environment variable handling
+  envPrefix: 'VITE_',
 }));
