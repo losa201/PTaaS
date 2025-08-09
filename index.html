@@ -36,22 +36,45 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://verteidiq.com" />
     
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Google Analytics 4 (conditionally loaded) -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID', {
-        anonymize_ip: true,
-        cookie_expires: 60 * 60 * 24 * 30, // 30 days
-        allow_google_signals: false,
-        allow_ad_personalization_signals: false
-      });
+      (function() {
+        const gaIdRaw = window.GA_MEASUREMENT_ID || 'GA_MEASUREMENT_ID';
+        const gaId = String(gaIdRaw).trim();
+        const isValid = /^G-[A-Z0-9]+$/.test(gaId);
+        if (!isValid) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} 
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', gaId, {
+          anonymize_ip: true,
+          cookie_expires: 60 * 60 * 24 * 30, // 30 days
+          allow_google_signals: false,
+          allow_ad_personalization_signals: false
+        });
+      })();
     </script>
     
-    <!-- HubSpot Tracking Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/HUBSPOT_ID.js"></script>
+    <!-- HubSpot Tracking Code (conditionally loaded) -->
+    <script>
+      (function() {
+        const hubIdRaw = window.HUBSPOT_ID || 'HUBSPOT_ID';
+        const hubId = String(hubIdRaw).trim();
+        if (!/^[0-9]+$/.test(hubId)) return;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.id = 'hs-script-loader';
+        s.async = true;
+        s.defer = true;
+        s.src = '//js.hs-scripts.com/' + hubId + '.js';
+        document.head.appendChild(s);
+      })();
+    </script>
     
     <!-- Hotjar Tracking Code -->
     <script>
