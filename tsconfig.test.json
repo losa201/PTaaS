@@ -4,13 +4,13 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    "module": "CommonJS",
     "skipLibCheck": true,
-    "types": ["jest", "@testing-library/jest-dom", "@types/jest", "node", "vite/client"],
+    "types": ["jest", "@testing-library/jest-dom", "node"],
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
     "isolatedModules": false,
     "moduleDetection": "force",
     "noEmit": true,

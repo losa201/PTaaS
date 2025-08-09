@@ -1,7 +1,7 @@
 
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { describe, it, expect } from '@jest/globals';
+import '@testing-library/jest-dom';
 import ProgressiveLeadCapture from '../ProgressiveLeadCapture';
 
 describe('ProgressiveLeadCapture', () => {

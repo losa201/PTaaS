@@ -15,7 +15,8 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': ['ts-jest', {
       tsconfig: './tsconfig.test.json',
-      isolatedModules: true
+      isolatedModules: true,
+      useESM: false
     }],
   },
   collectCoverageFrom: [
@@ -31,10 +32,4 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(@testing-library|@tanstack)/)'
   ],
-  extensionsToTreatAsEsm: ['.ts', '.tsx'],
-  globals: {
-    'ts-jest': {
-      useESM: true,
-    },
-  },
 };
