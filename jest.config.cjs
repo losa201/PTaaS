@@ -18,7 +18,8 @@ module.exports = {
         jsx: 'react-jsx',
         esModuleInterop: true,
         allowSyntheticDefaultImports: true,
-        types: ['jest', '@testing-library/jest-dom']
+        types: ['jest', '@testing-library/jest-dom', 'node'],
+        moduleResolution: 'node'
       }
     }],
   },
@@ -32,4 +33,7 @@ module.exports = {
   coverageReporters: ['text', 'lcov', 'html'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   watchPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(@testing-library)/)'
+  ]
 };
