@@ -8,6 +8,7 @@ import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import { Suspense, lazy, useEffect } from "react";
 import { initializeMonitoring, initializeWebVitals, monitorHealthChecks } from "@/lib/monitoring";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import Layout from "@/components/Layout";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -74,43 +75,45 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             <AnalyticsWrapper />
-            <Suspense fallback={<LoadingSpinner />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/finance" element={<Finance />} />
-                <Route path="/healthcare" element={<Healthcare />} />
-                <Route path="/manufacturing" element={<Manufacturing />} />
-                <Route path="/assessment" element={<SecurityAssessmentPage />} />
-                <Route path="/demo" element={<DemoPage />} />
-                <Route path="/ab-testing" element={<ABTestingPage />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/solutions" element={<Solutions />} />
-                <Route path="/case-studies" element={<CaseStudies />} />
-                <Route path="/advanced-security" element={<AdvancedSecurity />} />
-                <Route path="/threat-hunting" element={<ThreatHunting />} />
-                <Route path="/ai-orchestrator" element={<AISecurityOrchestrator />} />
-                <Route path="/zero-trust" element={<ZeroTrustManager />} />
-                <Route path="/cloud-security" element={<CloudSecurityPosture />} />
-                <Route path="/compliance" element={<ComplianceCenter />} />
-                <Route path="/reporting" element={<EnterpriseReporting />} />
-                <Route path="/threat-intelligence" element={<ThreatIntelligencePlatform />} />
-                <Route path="/iam-security" element={<IAMSecurityCenter />} />
-                <Route path="/security-playbooks" element={<SecurityPlaybooks />} />
-                <Route path="/executive-dashboard" element={<ExecutiveSecurityDashboard />} />
-                <Route path="/api-security" element={<APISecurityTesting />} />
-                <Route path="/cybersecurity-analytics" element={<CybersecurityAnalytics />} />
-                <Route path="/incident-response" element={<IncidentResponseCenter />} />
-                <Route path="/vulnerability-management" element={<VulnerabilityManagement />} />
-                <Route path="/network-monitoring" element={<NetworkSecurityMonitoring />} />
-                <Route path="/compliance-automation" element={<ComplianceAutomation />} />
-                <Route path="/security-operations-center" element={<SecurityOperationsCenter />} />
-                <Route path="/digital-forensics" element={<DigitalForensics />} />
-                <Route path="/security-governance" element={<SecurityGovernance />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
+            <Layout>
+              <Suspense fallback={<LoadingSpinner />}>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/finance" element={<Finance />} />
+                  <Route path="/healthcare" element={<Healthcare />} />
+                  <Route path="/manufacturing" element={<Manufacturing />} />
+                  <Route path="/assessment" element={<SecurityAssessmentPage />} />
+                  <Route path="/demo" element={<DemoPage />} />
+                  <Route path="/ab-testing" element={<ABTestingPage />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/solutions" element={<Solutions />} />
+                  <Route path="/case-studies" element={<CaseStudies />} />
+                  <Route path="/advanced-security" element={<AdvancedSecurity />} />
+                  <Route path="/threat-hunting" element={<ThreatHunting />} />
+                  <Route path="/ai-orchestrator" element={<AISecurityOrchestrator />} />
+                  <Route path="/zero-trust" element={<ZeroTrustManager />} />
+                  <Route path="/cloud-security" element={<CloudSecurityPosture />} />
+                  <Route path="/compliance" element={<ComplianceCenter />} />
+                  <Route path="/reporting" element={<EnterpriseReporting />} />
+                  <Route path="/threat-intelligence" element={<ThreatIntelligencePlatform />} />
+                  <Route path="/iam-security" element={<IAMSecurityCenter />} />
+                  <Route path="/security-playbooks" element={<SecurityPlaybooks />} />
+                  <Route path="/executive-dashboard" element={<ExecutiveSecurityDashboard />} />
+                  <Route path="/api-security" element={<APISecurityTesting />} />
+                  <Route path="/cybersecurity-analytics" element={<CybersecurityAnalytics />} />
+                  <Route path="/incident-response" element={<IncidentResponseCenter />} />
+                  <Route path="/vulnerability-management" element={<VulnerabilityManagement />} />
+                  <Route path="/network-monitoring" element={<NetworkSecurityMonitoring />} />
+                  <Route path="/compliance-automation" element={<ComplianceAutomation />} />
+                  <Route path="/security-operations-center" element={<SecurityOperationsCenter />} />
+                  <Route path="/digital-forensics" element={<DigitalForensics />} />
+                  <Route path="/security-governance" element={<SecurityGovernance />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </Layout>
           </BrowserRouter>
         </ErrorBoundary>
       </TooltipProvider>

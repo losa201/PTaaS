@@ -1,187 +1,148 @@
-import { useState } from 'react';
-import { Menu, X, Shield, Zap, Moon, Sun, Search, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Switch } from '@/components/ui/switch';
-import { Input } from '@/components/ui/input';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import LanguageSwitch from "@/components/LanguageSwitch";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+const links = [
+  { to: "/solutions", label: "Product" },
+  { to: "/frameworks", label: "Frameworks" },
+  { to: "/misconfig", label: "Library" },
+  { to: "/remediation", label: "Remediation" },
+  { to: "/roi-calculator", label: "ROI" },
+  { to: "/github-app", label: "GitHub App" },
+  { to: "/trust", label: "Trust" },
+  { to: "/pricing", label: "Pricing" },
+  { to: "/demo", label: "Demo" },
+];
 
-  const navItems = [
-    { label: 'Solutions', href: '/solutions' },
-    { label: 'Platform', href: '#', dropdown: [
-      { label: 'Security Operations', href: '/advanced-security' },
-      { label: 'Threat Hunting', href: '/threat-hunting' },
-      { label: 'AI Security Orchestrator', href: '/ai-orchestrator' },
-      { label: 'Zero Trust Manager', href: '/zero-trust' },
-      { label: 'Cloud Security Posture', href: '/cloud-security' },
-      { label: 'Compliance Center', href: '/compliance' },
-      { label: 'Enterprise Reporting', href: '/reporting' },
-      { label: 'Threat Intelligence', href: '/threat-intelligence' },
-      { label: 'IAM Security Center', href: '/iam-security' },
-      { label: 'Security Playbooks', href: '/security-playbooks' },
-      { label: 'Executive Dashboard', href: '/executive-dashboard' },
-      { label: 'API Security Testing', href: '/api-security' },
-      { label: 'Cybersecurity Analytics', href: '/cybersecurity-analytics' },
-      { label: 'Incident Response Center', href: '/incident-response' },
-      { label: 'Vulnerability Management', href: '/vulnerability-management' },
-      { label: 'Network Security Monitoring', href: '/network-monitoring' },
-      { label: 'Compliance Automation', href: '/compliance-automation' },
-      { label: 'Security Operations Center', href: '/security-operations-center' },
-      { label: 'Digital Forensics', href: '/digital-forensics' },
-      { label: 'Security Governance', href: '/security-governance' },
-      { label: 'Dashboard', href: '/dashboard' }
-    ]},
-    { label: 'Industries', href: '#', dropdown: [
-      { label: 'Financial Services', href: '/finance' },
-      { label: 'Healthcare', href: '/healthcare' },
-      { label: 'Manufacturing', href: '/manufacturing' }
-    ]},
-    { label: 'Case Studies', href: '/case-studies' },
-    { label: 'About', href: '/about' }
-  ];
+export default function Header() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="relative">
-              <Shield className="h-8 w-8 text-primary" />
-              <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
-            </div>
-            <span className="font-cyber text-xl font-bold text-neon-glow">VerteiDiq</span>
-          </div>
+    <header
+      role="banner"
+      className={
+        "fixed inset-x-0 top-0 z-40 transition backdrop-blur supports-[backdrop-filter]:bg-black/30 " +
+        (scrolled ? "border-b border-white/10" : "")
+      }
+    >
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <a href="/" className="flex items-center gap-2">
+          <img src="/favicon.svg" alt="" className="h-6 w-6" />
+          <span className="font-semibold tracking-tight">VerteidIQ</span>
+        </a>
 
-          {/* Global Search */}
-          <div className="hidden lg:flex flex-1 max-w-md mx-8 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input 
-              placeholder="Enter target..." 
-              className="pl-10 bg-background/50 border-primary/30 focus:border-primary"
-            />
-          </div>
+        {/* Desktop nav */}
+        <nav aria-label="Primary" className="hidden md:flex items-center gap-5">
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                "text-sm hover:underline underline-offset-4 " +
+                (isActive
+                  ? "text-[var(--text)] font-medium"
+                  : "text-[var(--muted)]")
+              }
+              onClick={() =>
+                (window as any).trackEvent?.("nav_click", { to: l.to })
+              }
+            >
+              {l.label}
+            </NavLink>
+          ))}
+          <a
+            href="/demo"
+            className="ml-2 bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-black text-sm font-semibold px-3 py-1.5 rounded"
+          >
+            Get a demo
+          </a>
+          <LanguageSwitch />
+        </nav>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              item.dropdown ? (
-                <DropdownMenu key={item.label}>
-                  <DropdownMenuTrigger className="text-foreground hover:text-primary transition-colors duration-200 relative group flex items-center gap-1">
-                    {item.label}
-                    <ChevronDown className="h-4 w-4" />
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-background/95 backdrop-blur-lg border-primary/30">
-                    {item.dropdown.map((dropdownItem) => (
-                      <DropdownMenuItem key={dropdownItem.label} asChild>
-                        <a
-                          href={dropdownItem.href}
-                          className="text-foreground hover:text-primary transition-colors duration-200"
-                        >
-                          {dropdownItem.label}
-                        </a>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-foreground hover:text-primary transition-colors duration-200 relative group"
+        {/* Mobile menu button */}
+        <button
+          aria-label="Open menu"
+          aria-expanded={open}
+          className="md:hidden inline-flex items-center justify-center h-9 w-9 rounded border border-white/10"
+          onClick={() => setOpen(true)}
+        >
+          <span className="sr-only">Open menu</span>
+          <svg
+            viewBox="0 0 24 24"
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile drawer */}
+      {open && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="md:hidden fixed inset-0 z-50"
+        >
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setOpen(false)}
+          />
+          <div className="absolute top-0 right-0 h-dvh w-[84%] max-w-sm bg-[var(--bg)] shadow-xl p-4 overflow-y-auto">
+            <div className="flex items-center justify-between h-12">
+              <span className="font-semibold">Menu</span>
+              <button
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="h-9 w-9 inline-flex items-center justify-center rounded border border-white/10"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
                 >
-                  {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              )
-            ))}
-          </nav>
-
-          {/* Dark Mode Toggle & CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center gap-2">
-              <Sun className="h-4 w-4 text-muted-foreground" />
-              <Switch 
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
-                className="data-[state=checked]:bg-primary"
-              />
-              <Moon className="h-4 w-4 text-primary" />
+                  <path strokeWidth="2" d="M6 6l12 12M18 6l-12 12" />
+                </svg>
+              </button>
             </div>
-            <Button 
-              variant="ghost" 
-              className="text-primary hover:text-primary-foreground hover:bg-primary"
-              onClick={() => window.location.href = '/demo'}
-            >
-              Live Demo
-            </Button>
-            <Button 
-              className="btn-cyber"
-              onClick={() => window.location.href = '/dashboard'}
-            >
-              <Zap className="h-4 w-4 mr-2" />
-              Launch PTaaS
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-primary"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border animate-cyber-fade-in">
-            <div className="px-4 py-6 space-y-4">
-              {navItems.map((item) => (
+            <nav aria-label="Mobile" className="mt-3 grid gap-1">
+              {links.map((l) => (
                 <a
-                  key={item.label}
-                  href={item.href}
-                  className="block text-foreground hover:text-primary transition-colors duration-200 py-2"
-                  onClick={() => setIsMenuOpen(false)}
+                  key={l.to}
+                  href={l.to}
+                  className="px-3 py-2 rounded hover:bg-white/5"
                 >
-                  {item.label}
+                  {l.label}
                 </a>
               ))}
-              <div className="pt-4 space-y-3">
-                <Button 
-                  variant="ghost" 
-                  className="w-full text-primary hover:text-primary-foreground hover:bg-primary"
-                  onClick={() => window.location.href = '/demo'}
-                >
-                  Live Demo
-                </Button>
-                <Button 
-                  className="w-full btn-cyber"
-                  onClick={() => window.location.href = '/dashboard'}
-                >
-                  <Zap className="h-4 w-4 mr-2" />
-                  Launch PTaaS
-                </Button>
+              <a
+                href="/demo"
+                className="mt-2 bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-black font-semibold px-3 py-2 rounded text-center"
+              >
+                Get a demo
+              </a>
+              <div className="mt-3">
+                <LanguageSwitch full />
               </div>
-            </div>
+            </nav>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
-};
-
-export default Header;
+}
