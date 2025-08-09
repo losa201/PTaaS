@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   define: {
-    __WS_TOKEN__: JSON.stringify(process.env.WS_TOKEN || null),
+    __WS_TOKEN__: JSON.stringify(process.env.WS_TOKEN || ""),
   },
   build: {
     rollupOptions: {
