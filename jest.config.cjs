@@ -30,10 +30,5 @@ module.exports = {
   watchPathIgnorePatterns: ['/node_modules/', '/dist/'],
   transformIgnorePatterns: [
     'node_modules/(?!(@testing-library|@tanstack)/)'
-  ],
-  globals: {
-    'ts-jest': {
-      tsconfig: './tsconfig.test.json'
-    }
-  }
+  ]
 };
