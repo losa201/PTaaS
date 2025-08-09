@@ -2,24 +2,22 @@
 import '@testing-library/jest-dom';
 
 // Mock IntersectionObserver
-const mockIntersectionObserver = jest.fn(() => ({
+global.IntersectionObserver = jest.fn().mockImplementation((callback, options) => ({
   observe: jest.fn(),
   unobserve: jest.fn(),
   disconnect: jest.fn(),
-  root: null,
-  rootMargin: '',
-  thresholds: [],
+  root: options?.root || null,
+  rootMargin: options?.rootMargin || '',
+  thresholds: options?.threshold ? [].concat(options.threshold) : [0],
   takeRecords: jest.fn(() => []),
 }));
 
-global.IntersectionObserver = mockIntersectionObserver as any;
-
 // Mock ResizeObserver
-global.ResizeObserver = jest.fn(() => ({
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),
   unobserve: jest.fn(),
   disconnect: jest.fn(),
-})) as any;
+}));
 
 // Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {
@@ -38,24 +36,3 @@ Object.defineProperty(window, 'matchMedia', {
 
 // Mock scrollIntoView
 Element.prototype.scrollIntoView = jest.fn();
-
-// Extend Jest matchers
-declare global {
-  namespace jest {
-    interface Matchers<R> {
-      toBeInTheDocument(): R;
-      toHaveClass(className: string): R;
-      toHaveAttribute(attr: string, value?: string): R;
-      toHaveTextContent(text: string | RegExp): R;
-      toBeVisible(): R;
-      toBeDisabled(): R;
-      toBeEnabled(): R;
-      toBeChecked(): R;
-      toHaveValue(value: string | number): R;
-      toHaveFocus(): R;
-      toBeValid(): R;
-      toBeInvalid(): R;
-      toHaveDisplayValue(value: string | RegExp | (string | RegExp)[]): R;
-    }
-  }
-}

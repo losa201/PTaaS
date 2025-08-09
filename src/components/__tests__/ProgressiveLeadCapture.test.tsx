@@ -1,6 +1,5 @@
 
-import { render } from '@testing-library/react';
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, it, expect } from '@jest/globals';
 import ProgressiveLeadCapture from '../ProgressiveLeadCapture';
