@@ -19,9 +19,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  define: {
-    __WS_TOKEN__: JSON.stringify(process.env.WS_TOKEN || ""),
-  },
+  // Remove problematic define that was causing syntax errors
+  // define: {
+  //   __WS_TOKEN__: JSON.stringify(process.env.WS_TOKEN || ""),
+  // },
   build: {
     rollupOptions: {
       output: {
