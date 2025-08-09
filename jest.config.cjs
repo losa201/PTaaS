@@ -1,3 +1,4 @@
+
 /** @type {import('jest').Config} */
 module.exports = {
   preset: 'ts-jest',
@@ -24,7 +25,6 @@ module.exports = {
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   watchPathIgnorePatterns: ['/node_modules/', '/dist/'],
 };
