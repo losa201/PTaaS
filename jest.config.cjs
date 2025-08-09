@@ -14,7 +14,13 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transform: {
     '^.+\\.(ts|tsx)$': ['ts-jest', {
-      tsconfig: './tsconfig.test.json',
+      tsconfig: {
+        jsx: 'react-jsx',
+        esModuleInterop: true,
+        allowSyntheticDefaultImports: true,
+        moduleResolution: 'node',
+        skipLibCheck: true
+      },
       isolatedModules: true,
       useESM: false
     }],
@@ -32,5 +38,12 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(@testing-library|@tanstack)/)'
   ],
-  moduleDirectories: ['node_modules', '<rootDir>/src']
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
+  globals: {
+    'ts-jest': {
+      tsconfig: {
+        jsx: 'react-jsx'
+      }
+    }
+  }
 };
