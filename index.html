@@ -36,64 +36,11 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://verteidiq.com" />
     
-    <!-- Google Analytics 4 (conditionally loaded) -->
-    <script>
-      (function() {
-        const gaIdRaw = window.GA_MEASUREMENT_ID || 'GA_MEASUREMENT_ID';
-        const gaId = String(gaIdRaw).trim();
-        const isValid = /^G-[A-Z0-9]+$/.test(gaId);
-        if (!isValid) return;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
-        document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', gaId, {
-          anonymize_ip: true,
-          cookie_expires: 60 * 60 * 24 * 30, // 30 days
-          allow_google_signals: false,
-          allow_ad_personalization_signals: false
-        });
-      })();
-    </script>
+    <!-- Google Analytics disabled in dev preview -->
     
-    <!-- HubSpot Tracking Code (conditionally loaded) -->
-    <script>
-      (function() {
-        const hubIdRaw = window.HUBSPOT_ID || 'HUBSPOT_ID';
-        const hubId = String(hubIdRaw).trim();
-        if (!/^[0-9]+$/.test(hubId)) return;
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.id = 'hs-script-loader';
-        s.async = true;
-        s.defer = true;
-        s.src = '//js.hs-scripts.com/' + hubId + '.js';
-        document.head.appendChild(s);
-      })();
-    </script>
+    <!-- HubSpot Tracking disabled in dev preview -->
     
-    <!-- Hotjar Tracking Code -->
-    <script>
-      (function () {
-        // Coerce ID to string and guard against missing/placeholder values
-        const hjidRaw = (window.HOTJAR_ID ?? "HOTJAR_ID");
-        const hjid = String(hjidRaw).trim();
-        if (!hjid || hjid === "HOTJAR_ID") return; // Skip if not configured
-
-        (function(h,o,t,j,a,r){
-          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-          h._hjSettings={hjid:hjid,hjsv:6};
-          a=o.getElementsByTagName('head')[0];
-          r=o.createElement('script');r.async=1;
-          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-          a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-      })();
-    </script>
+    <!-- Hotjar Tracking disabled in dev preview -->
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
