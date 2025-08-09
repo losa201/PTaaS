@@ -559,7 +559,7 @@ const APISecurityTesting: React.FC = () => {
                     <p className="text-sm font-medium text-gray-600">Test Coverage</p>
                     <p className="text-3xl font-bold text-green-600">87%</p>
                   </div>
-                  <Target className="h-8 w-8 text-green-600" />
+                  <Shield className="h-8 w-8 text-green-600" />
                 </div>
                 <p className="text-xs text-green-600 mt-2">OWASP Top 10 coverage</p>
               </CardContent>
