@@ -1,6 +1,5 @@
-
 import * as Sentry from '@sentry/react';
-import { onCLS, onFID, onFCP, onLCP, onTTFB } from 'web-vitals';
+import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals';
 
 interface ErrorReport {
   message: string;
@@ -110,7 +109,7 @@ export const initializeWebVitals = () => {
 
   // Measure Core Web Vitals
   onCLS(sendToAnalytics);
-  onFID(sendToAnalytics);
+  onINP(sendToAnalytics);
   onFCP(sendToAnalytics);
   onLCP(sendToAnalytics);
   onTTFB(sendToAnalytics);
