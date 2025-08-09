@@ -31,6 +31,7 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(@testing-library|@tanstack)/)'
   ],
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   globals: {
     'ts-jest': {
       useESM: true,
