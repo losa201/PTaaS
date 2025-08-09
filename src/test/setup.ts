@@ -2,22 +2,30 @@
 import '@testing-library/jest-dom';
 
 // Mock IntersectionObserver
-global.IntersectionObserver = jest.fn().mockImplementation((callback, options) => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
-  root: options?.root || null,
-  rootMargin: options?.rootMargin || '',
-  thresholds: options?.threshold ? [].concat(options.threshold) : [0],
-  takeRecords: jest.fn(() => []),
-}));
+global.IntersectionObserver = class IntersectionObserver {
+  constructor(callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
+    this.callback = callback;
+    this.options = options;
+  }
+  
+  callback: IntersectionObserverCallback;
+  options?: IntersectionObserverInit;
+  root = null;
+  rootMargin = '';
+  thresholds = [0];
+
+  observe = jest.fn();
+  unobserve = jest.fn();
+  disconnect = jest.fn();
+  takeRecords = jest.fn(() => []);
+};
 
 // Mock ResizeObserver
-global.ResizeObserver = jest.fn().mockImplementation(() => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
-}));
+global.ResizeObserver = class ResizeObserver {
+  observe = jest.fn();
+  unobserve = jest.fn();
+  disconnect = jest.fn();
+};
 
 // Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {
