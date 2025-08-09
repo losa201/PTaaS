@@ -32,11 +32,5 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(@testing-library|@tanstack)/)'
   ],
-  extensionsToTreatAsEsm: ['.ts', '.tsx'],
-  globals: {
-    'ts-jest': {
-      useESM: false,
-      tsconfig: './tsconfig.test.json'
-    }
-  }
+  moduleDirectories: ['node_modules', '<rootDir>/src']
 };
