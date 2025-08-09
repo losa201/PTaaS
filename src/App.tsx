@@ -1,8 +1,9 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import { Suspense, lazy, useEffect } from "react";
 import { initializeMonitoring, initializeWebVitals, monitorHealthChecks } from "@/lib/monitoring";
@@ -36,6 +37,12 @@ const LoadingSpinner = () => (
   </div>
 );
 
+// Analytics wrapper component
+const AnalyticsWrapper = () => {
+  const location = useLocation();
+  return <AnalyticsTracker page={location.pathname} />;
+};
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -53,7 +60,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <AnalyticsTracker />
+            <AnalyticsWrapper />
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
                 <Route path="/" element={<Index />} />

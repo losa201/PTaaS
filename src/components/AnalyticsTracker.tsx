@@ -25,6 +25,13 @@ interface ConversionEvent {
   custom_parameters?: Record<string, any>;
 }
 
+// Declare global gtag function properly
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 class AnalyticsManager {
   private static instance: AnalyticsManager;
   private isEnabled: boolean = false;
@@ -284,7 +291,6 @@ class AnalyticsManager {
     }).catch(error => console.error('Analytics error:', error));
   }
 
-  // A/B Testing integration
   getExperimentVariant(experimentId: string): string {
     // Mock A/B testing - in production, integrate with your A/B testing platform
     const variants = ['control', 'variant_a', 'variant_b'];
@@ -448,13 +454,6 @@ function calculateLeadScore(formData: any): number {
   score += industryScoring[formData.industry] || 0;
   
   return Math.min(score, 100); // Cap at 100
-}
-
-// Declare global gtag function
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-  }
 }
 
 export default AnalyticsManager;

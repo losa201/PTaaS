@@ -1,3 +1,4 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -20,7 +21,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   define: {
-    __WS_TOKEN__: 'undefined',
+    __WS_TOKEN__: JSON.stringify(undefined),
   },
   build: {
     rollupOptions: {
