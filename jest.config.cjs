@@ -32,5 +32,10 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(@testing-library|@tanstack)/)'
   ],
-  moduleDirectories: ['node_modules', '<rootDir>/src']
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
+  globals: {
+    'ts-jest': {
+      tsconfig: './tsconfig.test.json'
+    }
+  }
 };
