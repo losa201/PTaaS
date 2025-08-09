@@ -14,14 +14,8 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transform: {
     '^.+\\.(ts|tsx)$': ['ts-jest', {
-      tsconfig: {
-        jsx: 'react-jsx',
-        esModuleInterop: true,
-        allowSyntheticDefaultImports: true,
-        types: ['jest', '@testing-library/jest-dom', 'node'],
-        moduleResolution: 'node',
-        skipLibCheck: true
-      }
+      tsconfig: './tsconfig.test.json',
+      isolatedModules: true
     }],
   },
   collectCoverageFrom: [
@@ -39,9 +33,7 @@ module.exports = {
   ],
   globals: {
     'ts-jest': {
-      tsconfig: {
-        jsx: 'react-jsx'
-      }
+      tsconfig: './tsconfig.test.json'
     }
   }
 };
