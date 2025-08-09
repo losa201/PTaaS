@@ -109,23 +109,31 @@ export const Pricing = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-dark-surface to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-surface-darker to-background">
+      {/* Background elements */}
+      <div className="absolute inset-0 cyber-mesh opacity-20" />
+      <div className="absolute top-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-cyber font-bold mb-6">
-            <span className="bg-gradient-cyber bg-clip-text text-transparent">
-              Transparent Pricing
+          <Badge className="mb-6 glass hover:bg-primary/20 border-primary/30 text-primary animate-glow-pulse">
+            Simple, Transparent Pricing
+          </Badge>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            <span className="text-gradient">
+              Security That Scales
             </span>
+            <span className="text-foreground"> With Your Growth</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose the plan that fits your security needs. All plans include a free trial.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Choose the plan that fits your security needs. All plans include enterprise-grade protection and a free trial.
           </p>
         </div>
 
         {/* Price Calculator */}
         <div className="max-w-md mx-auto mb-16">
-          <Card className="card-cyber p-6">
+          <Card className="glass glass-hover p-6">
             <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
               <Server className="h-5 w-5 text-primary" />
               Estimate Your Cost
@@ -178,7 +186,7 @@ export const Pricing = () => {
                   Most Popular
                 </Badge>
               )}
-              <Card className={`card-cyber p-8 h-full ${plan.popular ? 'border-primary/50 shadow-neon' : ''}`}>
+              <Card className={`glass glass-hover p-8 h-full ${plan.popular ? 'border-primary/50 shadow-glow' : ''}`}>
                 <div className="text-center mb-6">
                   <plan.icon className="h-12 w-12 text-primary mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
@@ -214,8 +222,9 @@ export const Pricing = () => {
                 )}
 
                 <Button 
-                  className={`w-full ${plan.popular ? 'btn-cyber' : ''}`}
-                  variant={plan.popular ? 'default' : 'outline'}
+                  className="w-full"
+                  variant={plan.popular ? 'gradient' : 'outline'}
+                  size="lg"
                 >
                   {plan.cta}
                 </Button>
@@ -237,7 +246,7 @@ export const Pricing = () => {
                 onOpenChange={() => setOpenFaq(openFaq === index ? null : index)}
               >
                 <CollapsibleTrigger asChild>
-                  <Card className="card-cyber p-4 cursor-pointer hover:border-primary/50 transition-colors">
+                  <Card className="glass glass-hover p-4 cursor-pointer hover:border-primary/50 transition-colors">
                     <div className="flex items-center justify-between">
                       <h4 className="text-lg font-semibold text-foreground">{faq.question}</h4>
                       <ChevronDown className={`h-5 w-5 text-primary transition-transform ${openFaq === index ? 'rotate-180' : ''}`} />

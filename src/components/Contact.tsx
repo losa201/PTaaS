@@ -85,26 +85,31 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gradient-dark">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 relative overflow-hidden bg-gradient-to-b from-surface-dark to-background">
+      {/* Background elements */}
+      <div className="absolute inset-0 cyber-mesh opacity-30" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '-4s' }} />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/30">
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <Badge className="mb-6 glass hover:bg-primary/20 border-primary/30 text-primary animate-glow-pulse">
             Get In Touch
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-cyber font-bold mb-6">
-            <span className="text-neon-glow">Contact</span>{' '}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            <span className="text-gradient">Contact</span>{' '}
             <span className="text-foreground">Our Security Experts</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
             Ready to transform your cybersecurity posture? Our team of security experts is here to help you 
-            deploy VerteiDiq's autonomous intelligence platform.
+            deploy VerteidIQ's autonomous intelligence platform.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="card-cyber border-border/50">
+          <Card className="glass glass-hover border-border/30">
             <CardHeader>
               <CardTitle className="text-2xl text-foreground">Send us a message</CardTitle>
               <CardDescription className="text-muted-foreground">
@@ -184,7 +189,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" className="w-full btn-cyber">
+                <Button type="submit" className="w-full" variant="gradient" size="lg">
                   <Mail className="h-4 w-4 mr-2" />
                   Send Message
                   <ArrowRight className="h-4 w-4 ml-2" />
