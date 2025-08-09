@@ -204,7 +204,8 @@ All colors MUST be HSL.
 
   .btn-cyber::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-primary opacity-0 rounded-xl;
+    @apply absolute inset-0 opacity-0 rounded-xl;
+    background: var(--gradient-primary);
     transition: opacity 0.3s ease;
   }
 
