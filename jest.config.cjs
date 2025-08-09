@@ -19,7 +19,8 @@ module.exports = {
         esModuleInterop: true,
         allowSyntheticDefaultImports: true,
         types: ['jest', '@testing-library/jest-dom', 'node'],
-        moduleResolution: 'node'
+        moduleResolution: 'node',
+        skipLibCheck: true
       }
     }],
   },
@@ -34,6 +35,13 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   watchPathIgnorePatterns: ['/node_modules/', '/dist/'],
   transformIgnorePatterns: [
-    'node_modules/(?!(@testing-library)/)'
-  ]
+    'node_modules/(?!(@testing-library|@tanstack)/)'
+  ],
+  globals: {
+    'ts-jest': {
+      tsconfig: {
+        jsx: 'react-jsx'
+      }
+    }
+  }
 };
