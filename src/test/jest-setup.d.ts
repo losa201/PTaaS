@@ -1,5 +1,6 @@
 
-import '@testing-library/jest-dom';
+/// <reference types="jest" />
+/// <reference types="@testing-library/jest-dom" />
 
 declare global {
   namespace jest {
@@ -20,3 +21,5 @@ declare global {
     }
   }
 }
+
+export {};
