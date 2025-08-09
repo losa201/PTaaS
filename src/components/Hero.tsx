@@ -33,7 +33,7 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-cyber font-bold mb-6 animate-cyber-fade-in">
-            <span className="bg-gradient-brand bg-clip-text text-transparent">
+            <span className="text-gradient">
               Autonomous PTaaS to Stop Breaches Before They Happen
             </span>
           </h1>
@@ -59,16 +59,18 @@ const Hero = () => {
           {/* Primary CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-16 animate-cyber-fade-in">
             <Button 
-              variant="default" 
-              className="text-lg px-10 py-4 bg-primary hover:bg-primary/90 group"
+              variant="gradient" 
+              size="xl"
+              className="group interactive-glow"
               onClick={() => setShowDemo(true)}
             >
               Get a Demo
-              <ArrowRight className="h-4 w-4 ml-3 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-5 w-5 ml-3 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
-              variant="outline"
-              className="text-lg px-8 py-4 border-primary/50 text-primary hover:bg-primary/10 group"
+              variant="glass"
+              size="xl"
+              className="group interactive-glow"
             >
               Explore Platform
               <Play className="h-5 w-5 ml-3 group-hover:animate-pulse" />
@@ -94,22 +96,24 @@ const Hero = () => {
                 description: 'AI-powered scanning + human validation ensures comprehensive coverage across web, API & cloud infrastructure.'
               }
             ].map((feature, index) => (
-              <div key={index} className="card-cyber text-center group hover:scale-105 transition-transform duration-300">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="h-6 w-6 text-primary" />
+              <div key={index} className="card-cyber text-center group interactive-glow">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6 group-hover:bg-primary/20 transition-all duration-300 animate-float">
+                  <feature.icon className="h-8 w-8 text-primary animate-glow-pulse" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-foreground">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-ping opacity-60"></div>
-      <div className="absolute top-32 right-20 w-1 h-1 bg-accent rounded-full animate-pulse opacity-40"></div>
-      <div className="absolute bottom-40 left-20 w-3 h-3 bg-cyber-violet rounded-full animate-bounce opacity-30"></div>
+      {/* Enhanced Floating Elements */}
+      <div className="absolute top-20 left-10 w-3 h-3 bg-primary rounded-full animate-ping opacity-60 shadow-glow"></div>
+      <div className="absolute top-32 right-20 w-2 h-2 bg-accent rounded-full animate-pulse opacity-50 shadow-glow"></div>
+      <div className="absolute bottom-40 left-20 w-4 h-4 bg-brand-accent rounded-full animate-bounce opacity-40 shadow-glow"></div>
+      <div className="absolute top-1/2 right-10 w-1 h-1 bg-brand-secondary rounded-full animate-ping opacity-30"></div>
+      <div className="absolute bottom-60 right-1/3 w-2 h-2 bg-primary rounded-full animate-float opacity-40"></div>
 
       {/* Demo Modal */}
       <DemoModal open={showDemo} onOpenChange={setShowDemo} />
