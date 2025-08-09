@@ -1,0 +1,26 @@
+{
+  "deployment": {
+    "timestamp": "2025-08-09T00:59:29.861Z",
+    "version": "c765767",
+    "domain": "verteidiq.com",
+    "build_size": "2.0M",
+    "package_size": "636K",
+    "components": [
+      "AdvancedSecurity",
+      "ThreatHunting", 
+      "AISecurityOrchestrator",
+      "ZeroTrustManager",
+      "CloudSecurityPosture",
+      "ComplianceCenter",
+      "EnterpriseReporting"
+    ],
+    "features": [
+      "Real-time Security Monitoring",
+      "AI-Powered Threat Detection",
+      "Zero Trust Architecture",
+      "Multi-Cloud Security Posture",
+      "Compliance Automation",
+      "Enterprise Reporting"
+    ]
+  }
+}

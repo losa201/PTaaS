@@ -28,6 +28,19 @@ const ZeroTrustManager = lazy(() => import("./components/ZeroTrustManager"));
 const CloudSecurityPosture = lazy(() => import("./components/CloudSecurityPosture"));
 const ComplianceCenter = lazy(() => import("./components/ComplianceCenter"));
 const EnterpriseReporting = lazy(() => import("./components/EnterpriseReporting"));
+const ThreatIntelligencePlatform = lazy(() => import("./components/ThreatIntelligencePlatform"));
+const IAMSecurityCenter = lazy(() => import("./components/IAMSecurityCenter"));
+const SecurityPlaybooks = lazy(() => import("./components/SecurityPlaybooks"));
+const ExecutiveSecurityDashboard = lazy(() => import("./components/ExecutiveSecurityDashboard"));
+const APISecurityTesting = lazy(() => import("./components/APISecurityTesting"));
+const CybersecurityAnalytics = lazy(() => import("./components/CybersecurityAnalytics"));
+const IncidentResponseCenter = lazy(() => import("./components/IncidentResponseCenter"));
+const VulnerabilityManagement = lazy(() => import("./components/VulnerabilityManagement"));
+const NetworkSecurityMonitoring = lazy(() => import("./components/NetworkSecurityMonitoring"));
+const ComplianceAutomation = lazy(() => import("./components/ComplianceAutomation"));
+const SecurityOperationsCenter = lazy(() => import("./components/SecurityOperationsCenter"));
+const DigitalForensics = lazy(() => import("./components/DigitalForensics"));
+const SecurityGovernance = lazy(() => import("./components/SecurityGovernance"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading component for Suspense fallback
@@ -81,6 +94,19 @@ const App = () => {
                 <Route path="/cloud-security" element={<CloudSecurityPosture />} />
                 <Route path="/compliance" element={<ComplianceCenter />} />
                 <Route path="/reporting" element={<EnterpriseReporting />} />
+                <Route path="/threat-intelligence" element={<ThreatIntelligencePlatform />} />
+                <Route path="/iam-security" element={<IAMSecurityCenter />} />
+                <Route path="/security-playbooks" element={<SecurityPlaybooks />} />
+                <Route path="/executive-dashboard" element={<ExecutiveSecurityDashboard />} />
+                <Route path="/api-security" element={<APISecurityTesting />} />
+                <Route path="/cybersecurity-analytics" element={<CybersecurityAnalytics />} />
+                <Route path="/incident-response" element={<IncidentResponseCenter />} />
+                <Route path="/vulnerability-management" element={<VulnerabilityManagement />} />
+                <Route path="/network-monitoring" element={<NetworkSecurityMonitoring />} />
+                <Route path="/compliance-automation" element={<ComplianceAutomation />} />
+                <Route path="/security-operations-center" element={<SecurityOperationsCenter />} />
+                <Route path="/digital-forensics" element={<DigitalForensics />} />
+                <Route path="/security-governance" element={<SecurityGovernance />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

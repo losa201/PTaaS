@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  verteidiq-web:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.verteidiq.rule=Host(`verteidiq.com`, `www.verteidiq.com`)"
+      - "traefik.http.routers.verteidiq.tls=true"
+      - "traefik.http.routers.verteidiq.tls.certresolver=letsencrypt"
+
+networks:
+  default:
+    external:
+      name: web

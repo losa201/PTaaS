@@ -81,3 +81,4 @@ bun.lockb
 *.crt
 config/secrets.json
 .env.production
+.vercel
