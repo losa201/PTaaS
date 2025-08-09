@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* XORB Cyberpunk Design System */
+    /* VerteidIQ Dark Design System */
     --background: 218 25% 7%; /* Deep cyber dark */
     --foreground: 180 100% 90%; /* Bright cyan-white */
 
@@ -18,8 +18,8 @@ All colors MUST be HSL.
     --popover: 218 25% 8%;
     --popover-foreground: 180 100% 90%;
 
-    --primary: 180 100% 50%; /* Neon cyan #00ffe0 */
-    --primary-foreground: 218 25% 7%;
+    --primary: 142 76% 36%; /* Emerald-600 #16a34a */
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 250 50% 15%; /* Dark violet */
     --secondary-foreground: 180 100% 90%;
@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --muted: 218 15% 12%;
     --muted-foreground: 180 30% 65%;
 
-    --accent: 140 100% 50%; /* Cyber green */
+    --accent: 142 86% 43%; /* Emerald-500 #22c55e */
     --accent-foreground: 218 25% 7%;
 
     --destructive: 0 84% 60%;
@@ -35,23 +35,23 @@ All colors MUST be HSL.
 
     --border: 218 15% 20%; /* Subtle dark borders */
     --input: 218 20% 15%;
-    --ring: 180 100% 50%;
+    --ring: 142 76% 36%;
 
-    /* XORB Custom Design Tokens */
-    --neon-glow: 180 100% 50%; /* Primary neon */
-    --cyber-violet: 280 100% 70%;
-    --cyber-green: 140 100% 50%;
-    --dark-surface: 218 20% 12%;
-    --darker-surface: 218 25% 5%;
+    /* VerteidIQ Brand Tokens */
+    --brand-primary: 142 76% 36%; /* Emerald-600 */
+    --brand-secondary: 142 86% 43%; /* Emerald-500 */
+    --brand-accent: 280 100% 70%; /* Purple accent */
+    --surface-dark: 218 20% 12%;
+    --surface-darker: 218 25% 5%;
     
     /* Gradients */
-    --gradient-cyber: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--cyber-violet)));
-    --gradient-dark: linear-gradient(180deg, hsl(var(--dark-surface)), hsl(var(--darker-surface)));
-    --gradient-glow: radial-gradient(circle, hsl(var(--neon-glow) / 0.15) 0%, transparent 70%);
+    --gradient-brand: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--brand-accent)));
+    --gradient-dark: linear-gradient(180deg, hsl(var(--surface-dark)), hsl(var(--surface-darker)));
+    --gradient-glow: radial-gradient(circle, hsl(var(--brand-primary) / 0.15) 0%, transparent 70%);
     
     /* Shadows & Effects */
-    --shadow-neon: 0 0 20px hsl(var(--neon-glow) / 0.5);
-    --shadow-cyber: 0 10px 40px hsl(var(--primary) / 0.3);
+    --shadow-brand: 0 0 20px hsl(var(--brand-primary) / 0.5);
+    --shadow-emerald: 0 10px 40px hsl(var(--primary) / 0.3);
     --shadow-dark: 0 10px 30px hsl(218 25% 3% / 0.8);
     
     /* Animations */
@@ -127,10 +127,10 @@ All colors MUST be HSL.
     background-attachment: fixed;
   }
 
-  /* Custom keyframes for XORB animations */
+  /* Custom keyframes for VerteidIQ animations */
   @keyframes pulse-glow {
-    0% { box-shadow: 0 0 5px hsl(var(--neon-glow) / 0.3); }
-    100% { box-shadow: 0 0 25px hsl(var(--neon-glow) / 0.6); }
+    0% { box-shadow: 0 0 5px hsl(var(--brand-primary) / 0.3); }
+    100% { box-shadow: 0 0 25px hsl(var(--brand-primary) / 0.6); }
   }
 
   @keyframes cyber-fade-in {
@@ -160,7 +160,7 @@ All colors MUST be HSL.
   }
 
   .btn-cyber:hover {
-    box-shadow: var(--shadow-neon);
+    box-shadow: var(--shadow-brand);
     animation: var(--glow-pulse);
   }
 
@@ -168,11 +168,11 @@ All colors MUST be HSL.
   .card-cyber {
     @apply bg-card border border-border rounded-xl p-6;
     @apply backdrop-blur-sm;
-    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--dark-surface)) 100%);
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--surface-dark)) 100%);
     box-shadow: var(--shadow-dark);
   }
 
-  /* Neon text effect */
+  /* Brand text effect */
   .text-neon {
     @apply text-primary;
     text-shadow: 0 0 10px hsl(var(--primary) / 0.5);

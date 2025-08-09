@@ -62,12 +62,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// XORB Custom Colors
-				'neon-glow': 'hsl(var(--neon-glow))',
-				'cyber-violet': 'hsl(var(--cyber-violet))',
-				'cyber-green': 'hsl(var(--cyber-green))',
-				'dark-surface': 'hsl(var(--dark-surface))',
-				'darker-surface': 'hsl(var(--darker-surface))'
+				// VerteidIQ Brand Colors
+				'brand-primary': 'hsl(var(--brand-primary))',
+				'brand-secondary': 'hsl(var(--brand-secondary))',
+				'cyber-violet': 'hsl(var(--brand-accent))',
+				'surface-dark': 'hsl(var(--surface-dark))',
+				'surface-darker': 'hsl(var(--surface-darker))'
 			},
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -75,13 +75,13 @@ export default {
 				cyber: ['Orbitron', 'Inter', 'sans-serif']
 			},
 			backgroundImage: {
-				'gradient-cyber': 'var(--gradient-cyber)',
+				'gradient-brand': 'var(--gradient-brand)',
 				'gradient-dark': 'var(--gradient-dark)',
 				'gradient-glow': 'var(--gradient-glow)'
 			},
 			boxShadow: {
-				'neon': 'var(--shadow-neon)',
-				'cyber': 'var(--shadow-cyber)',
+				'brand': 'var(--shadow-brand)',
+				'emerald': 'var(--shadow-emerald)',
 				'dark': 'var(--shadow-dark)'
 			},
 			borderRadius: {

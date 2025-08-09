@@ -33,18 +33,14 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-cyber font-bold mb-6 animate-cyber-fade-in">
-            <span className="bg-gradient-cyber bg-clip-text text-transparent">
-              Stop Breaches Before They Happen
+            <span className="bg-gradient-brand bg-clip-text text-transparent">
+              Autonomous PTaaS to Stop Breaches Before They Happen
             </span>
-            <br />
-            <span className="text-neon-glow">AI-Powered Security That Thinks Like Attackers</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed animate-cyber-fade-in">
-            VerteidIQ's <span className="text-primary font-semibold">autonomous agents detect, validate, and neutralize threats 24/7</span> - 
-            reducing security incidents by <span className="text-green-400 font-bold">89%</span> and preventing 
-            <span className="text-green-400 font-bold"> $4.2M average breach costs</span> for enterprise teams.
+            Validate controls, hunt threats, and auto-remediate risk across your stack — continuously.
           </p>
 
           {/* PTaaS Explainer */}
@@ -60,23 +56,22 @@ const Hero = () => {
             <ProgressiveLeadCapture variant="hero" />
           </div>
 
-          {/* Secondary CTAs */}
+          {/* Primary CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-16 animate-cyber-fade-in">
             <Button 
-              variant="outline" 
-              className="text-lg px-10 py-4 border-primary/50 text-primary hover:bg-primary/10 group bg-background/50 backdrop-blur"
+              variant="default" 
+              className="text-lg px-10 py-4 bg-primary hover:bg-primary/90 group"
               onClick={() => setShowDemo(true)}
             >
-              <Play className="h-5 w-5 mr-3 group-hover:animate-pulse" />
-              See Live Demo
+              Get a Demo
               <ArrowRight className="h-4 w-4 ml-3 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
-              variant="ghost"
-              className="text-lg px-8 py-4 text-muted-foreground hover:text-primary group"
+              variant="outline"
+              className="text-lg px-8 py-4 border-primary/50 text-primary hover:bg-primary/10 group"
             >
-              Talk to CISO
-              <span className="text-xs ml-2 bg-primary/20 px-2 py-1 rounded">15 min</span>
+              Explore Platform
+              <Play className="h-5 w-5 ml-3 group-hover:animate-pulse" />
             </Button>
           </div>
 
