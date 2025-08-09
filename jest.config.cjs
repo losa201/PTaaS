@@ -30,5 +30,10 @@ module.exports = {
   watchPathIgnorePatterns: ['/node_modules/', '/dist/'],
   transformIgnorePatterns: [
     'node_modules/(?!(@testing-library|@tanstack)/)'
-  ]
+  ],
+  globals: {
+    'ts-jest': {
+      useESM: true,
+    },
+  },
 };

@@ -1,26 +1,28 @@
+
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Index from '../Index';
 
 // Mock child components to isolate testing
-jest.mock('../../../components/Navigation', () => ({
+jest.mock('../../components/Navigation', () => ({
   Navigation: () => <nav data-testid="navigation">Navigation</nav>
 }));
 
-jest.mock('../../../components/Hero', () => ({
+jest.mock('../../components/Hero', () => ({
   Hero: () => <div data-testid="hero">Hero Section</div>
 }));
 
-jest.mock('../../../components/ProgressiveLeadCapture', () => ({
-  ProgressiveLeadCapture: () => <div data-testid="lead-capture">Lead Capture</div>
+jest.mock('../../components/ProgressiveLeadCapture', () => ({
+  __esModule: true,
+  default: () => <div data-testid="lead-capture">Lead Capture</div>
 }));
 
-jest.mock('../../../components/SecurityAssessment', () => ({
+jest.mock('../../components/SecurityAssessment', () => ({
   SecurityAssessment: () => <div data-testid="security-assessment">Security Assessment</div>
 }));
 
-jest.mock('../../../components/Footer', () => ({
+jest.mock('../../components/Footer', () => ({
   Footer: () => <footer data-testid="footer">Footer</footer>
 }));
 
